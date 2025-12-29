@@ -15,6 +15,14 @@ fn main() {
     // This consumes the `args` vector to iterate through each String
     for arg in args {
         // 1a. Your task: handle the command-line arguments!
+        println!(r"\n\n\n\ arg:\n-> {}", arg);
+        if arg == "sum" {
+            sum();
+        } else if arg == "double"{
+            double();
+        } else {
+            count(arg);
+        }
         //
         // - If arg is "sum", then call the sum() function
         // - If arg is "double", then call the double() function
@@ -31,7 +39,9 @@ fn sum() {
     // 2. Use a "for loop" to iterate through integers from 7 to 23 *inclusive* using a range
     // and add them all together (increment the `sum` variable).  Hint: You should get 255
     // Run it with `cargo run sum`
-
+    for num in 7..=23 {
+        sum += num;
+    }
 
     println!("The sum is {}", sum);
 }
@@ -43,6 +53,10 @@ fn double() {
     // by 2) until `x` is larger than 500.  Increment `count` each time through the loop. Run it
     // with `cargo run double`  Hint: The answer is 9 times.
 
+    while x<500 {
+        count += 1;
+        x *= 2;
+    }
 
     println!("You can double x {} times until x is larger than 500", count);
 }
@@ -51,7 +65,10 @@ fn count(arg: String) {
     // Challenge: Use an unconditional loop (`loop`) to print `arg` 8 times, and then break.
     // You will need to count your loops, somehow.  Run it with `cargo run bananas`
     //
-    // print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+
+    for s in 0..=arg.len() {
+        print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+    }
 
 
     println!(); // This will output just a newline at the end for cleanliness.
